@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" 
+        src="http://localhost:8000/uploadApk/client.js">
+        </script>
+        <script type="text/javascript" 
+        src="/js/jquery.js">
+        </script>
+        
+        <script type="text/javascript">
+        	
+        function subscribe(channel){
+    			var client = new Faye.Client('http://localhost:8000/uploadApk');
+    			client.addExtension({
+							  outgoing: function(message, callback) {
+							    message.ext = message.ext || {};
+							    message.ext.app_key = 'ijoyplus_android_0001bj';
+							    callback(message);
+							  }
+							});		
+					var subscription = client.subscribe('/'+channel, function(message) {
+						if(message.msg_type =='1'){
+					    alert("receive file_url:"+message.body.file_url);
+					    alert("receive file_key:"+message.body.file_key);
+					   }else if(message.msg_type =='2'){
+					      //alert(message.body.channel);
+					      if(confirm('确认来自客户端的连接请求么？')){
+					        publish(message.body.channel,'3');
+					      }else {
+					      	publish(message.body.channel,'4');
+					      }
+					   }
+					});
+					subscription.callback(function() {
+                alert('Subscription is now active!');
+							});
+							
+							subscription.errback(function(error) {
+							  alert(error);
+							});
+        }
+        
+        function publish(channel,msg_type){
+              var client = new Faye.Client('http://localhost:8000/uploadApk');
+              client.addExtension({
+							  outgoing: function(message, callback) {
+							    message.ext = message.ext || {};
+							    message.ext.app_key = 'ijoyplus_android_0001bj';
+							    callback(message);
+							  }
+							});		
+					    var publication=client.publish('/'+channel, {
+							    'msg_type':msg_type
+							});
+							
+							publication.callback(function() {
+							 // alert('msg send out.');
+							});
+							
+							publication.errback(function(error) {
+							 
+							});
+
+           }
+         function genpincode(){
+         	var postData = {
+                    "mac_address": 'ss:aa:bb:ee',
+                    "client": 'ios'
+                };
+            $.ajax({
+                    type: "GET",
+                    url: 'http://localhost:8000/generatePinCode',
+                    processData: true,
+                    data: postData,
+                    beforeSend: function(){},
+                    complete: function(){},
+                    success:function(resp){
+                      
+                        subscribe(resp.channel);
+                         $('#pincode').empty().append('Pin Code is '+resp.pinCode);
+//                        document.getElementById(this.customSettings.cancelButtonId).disabled = true;
+//                        window.setTimeout(function(){ location.href = "upload";}, 1500);
+                    }
+                });
+         }
+
+</script>
+</head><body>
+<span id="pincode"></span>
+<a href="#" onclick='genpincode();'> 生成pincode</a></body>
+</html>

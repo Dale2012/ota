@@ -1,0 +1,179 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html {
+	height:100%;
+	overflow:hidden
+}
+body {
+	background: #277298 url('/images/body1.jpg') no-repeat center bottom;
+	position: relative;
+	height: 100%;
+	min-height: 600px;
+}
+body:before{
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: url('/images/body3.png') repeat-x center bottom;
+	z-index: -99;
+	-moz-animation: move 90s infinite linear; 
+	-webkit-animation: move 90s infinite linear; 
+	-o-animation: move 90s infinite linear; 
+}
+body::after{
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: url('/images/body2.png') repeat-x center bottom;
+	z-index: -999;
+	animation: move 180s infinite linear; 
+	-moz-animation: move 180s infinite linear; 
+	-webkit-animation: move 180s infinite linear; 
+	-o-animation: move 180s infinite linear; 
+}
+#header {
+	background: url('/images/headerbg.png') repeat-x left top;
+}
+h1{
+	display: block;
+	height: 70px;
+	width: 960px;
+	margin: 0 auto;
+	text-indent: -9999em;
+	background: url('/images/logo.png') no-repeat left center;
+}
+@keyframes { 
+	0% { background-position: 0 bottom; } 
+	100% { background-position: -1920px bottom; }
+}
+@-moz-keyframes moves { 
+	0% { background-position: 0 bottom; } 
+	100% { background-position: -1920px bottom; }
+}
+@-webkit-keyframes moves { 
+	0% { background-position: 0 bottom; } 
+	100% { background-position: -1920px bottom; }
+}
+@-o-keyframes moves { 
+	0% { background-position: 0 bottom; } 
+	100% { background-position: -1920px bottom; }
+}
+a {
+  color: #00B7FF;
+}
+.hiddenTag{
+    display:none;
+}
+.left{
+	float: left;
+	width: 400px;
+}
+.right{
+	float: right;
+	width: 540px;
+}
+.clear{
+	clear: both;
+}
+.firstletter{
+	clear: both;
+	font-size: 36px;
+	display: block;
+}
+#pin, #pingCode, .legend, #fsUploadProgress, #SWFUpload_0 {
+	margin-left: 90px;
+}
+.legend{
+	float: left;
+	margin-bottom: 20px;
+}
+#pingCode {
+	width: 295px;
+	height: 60px;
+	margin-top: 20px;
+	background: rgba(0, 0, 0, .2);
+	border: 1px solid rgba(255, 255, 255, .2);
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius : 5px;
+	-o-border-radius : 5px;
+	text-align: center;
+	color: #FFF;
+	font-size: 40px;
+	letter-spacing: 10px;
+	text-transform: uppercase;
+}
+#footer{
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+	color: #7eb5d2;
+	position: absolute;
+	bottom: 30px;
+	text-shadow: 0 1px 0 #FFF;
+}
+#divStatus {
+	text-align: right;
+	font-size: 14px;
+}
+#btnCancel,#uploadFileButton_init{
+	background-image: -moz-linear-gradient(top, #FFFFFF, #cecece); /* Firefox */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #cecece)); /* Saf4+, Chrome */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#cecece', GradientType='0'); /* IE*/
+	border: 1px solid #FFF;
+	text-shadow: 0 1px 0 #FFF;
+	font-size: 18px;
+	line-height: 48px;
+	width: 300px;
+	height: 50px;
+	margin-left: 92px;
+	box-shadow: 0px 1px 3px #666;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+#info_right {
+	margin-left: 90px;
+	font-size: 12px;
+	float: left;
+	height: 36px;
+}
+#info_input {
+	float: right;
+	font-size: 14px;
+	display: block;
+	width: 80px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	background-image: -moz-linear-gradient(top, #FFFFFF, #cecece); /* Firefox */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #cecece)); /* Saf4+, Chrome */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#cecece', GradientType='0'); /* IE*/
+	border: 1px solid #FFF;
+	text-shadow: 0 1px 0 #FFF;
+	box-shadow: 0px 1px 3px #666;
+	border-radius: 5px;
+	color: #4186af;
+	letter-spacing: 1px;
+	margin-right: 9px;
+}
+#info_input:hover {
+	background-image: -moz-linear-gradient(top, #f39d47, #a66121); /* Firefox */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f39d47), color-stop(1, #a66121)); /* Saf4+, Chrome */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f39d47', endColorstr='#a66121', GradientType='0'); /* IE*/
+	border: 1px solid #f4a859;
+	text-shadow: 0 1px 0 #000;
+	color: #FFF;
+}
+#uploadFileButton {
+	margin-top: 10px;
+}

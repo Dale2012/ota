@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<updata>
+   <command force="false" name="update_with_inc_ota">
+       <url>http://ota.joyplus.tv/Joyplus-EShareX-A01-201305151729-OTA.zip</url>
+      <md5>b226e4ad219e4eb12c62f532b33cbda7</md5>
+      <!--语言从上往下选择，如何没有相对应的语言，就选择英文。country的值是按照android标准获取的国家代码-->
+      <description country="CN" language="zh">1.修正鼠标有时无法使用的bug.2.优化视频播放效果</description>
+      <description country="TW" language="zh">1.修正鼠標有時無法使用的bug.2.優化視頻播放效果.</description>
+      <description country="ELSE" language="en">1.fix a bug that the mouse can't be used sometimes.2.perfect the video play effect.</description>
+      <!--当前差分包的fingerprint：
+elite-standard
+当差分包对应升级版本的fingerprint:
+elite-standard
+-->
+   </command>
+</updata>
